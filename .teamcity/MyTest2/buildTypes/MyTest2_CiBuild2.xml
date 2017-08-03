@@ -36,6 +36,9 @@
           <param name="withBuildAnchor" value="false" />
         </parameters>
       </extension>
+      <extension id="perfmon" type="perfmon">
+        <parameters />
+      </extension>
     </build-extensions>
     <cleanup />
   </settings>
