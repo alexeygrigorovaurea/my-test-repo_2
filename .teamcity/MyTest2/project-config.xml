@@ -8,7 +8,7 @@
         <param name="buildSettings" value="PREFER_VCS" />
         <param name="enabled" value="true" />
         <param name="rootId" value="MyTest2_MyTestRepo2" />
-        <param name="showChanges" value="true" />
+        <param name="showChanges" value="false" />
       </parameters>
     </extension>
   </project-extensions>

@@ -5,7 +5,7 @@
   <settings>
     <parameters />
     <build-runners>
-      <runner id="RUNNER_2" name="" type="simpleRunner">
+      <runner id="RUNNER_1" name="" type="simpleRunner">
         <parameters>
           <param name="script.content" value="echo hello" />
           <param name="teamcity.step.mode" value="default" />
@@ -18,7 +18,7 @@
     </vcs-settings>
     <requirements />
     <build-triggers>
-      <build-trigger id="vcsTrigger" type="vcsTrigger">
+      <build-trigger id="TRIGGER_1" type="vcsTrigger">
         <parameters>
           <param name="branchFilter" value="+:*" />
           <param name="quietPeriodMode" value="DO_NOT_USE" />
@@ -26,7 +26,12 @@
       </build-trigger>
     </build-triggers>
     <build-extensions>
-      <extension id="BUILD_EXT_1" type="BuildFailureOnMetric">
+      <extension id="BUILD_EXT_1" type="perfmon">
+        <parameters>
+          <param name="teamcity.perfmon.feature.enabled" value="true" />
+        </parameters>
+      </extension>
+      <extension id="BUILD_EXT_2" type="BuildFailureOnMetric">
         <parameters>
           <param name="anchorBuild" value="lastSuccessful" />
           <param name="metricKey" value="CodeCoverageL" />
@@ -35,9 +40,6 @@
           <param name="moreOrLess" value="more" />
           <param name="withBuildAnchor" value="false" />
         </parameters>
-      </extension>
-      <extension id="perfmon" type="perfmon">
-        <parameters />
       </extension>
     </build-extensions>
     <cleanup />
