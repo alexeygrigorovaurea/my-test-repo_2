@@ -8,6 +8,6 @@ node ('docker') {
         checkout scm
         step([$class: 'XUnitBuilder',
               thresholds: [[$class: 'FailedThreshold', failureThreshold: '1']],
-              tools: [[$class: 'UnitTestJunitHudsonTestType', pattern: "**"]]])
+              tools: [[$class: 'UnitTestJunitHudsonTestType', pattern: "**.xml"]]])
     }
 }
