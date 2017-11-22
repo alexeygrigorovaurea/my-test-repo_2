@@ -9,6 +9,6 @@ node ('docker') {
         step([$class: 'XUnitBuilder',
               thresholds: [[$class: 'FailedThreshold', failureThreshold: '1']],
               tools: [[$class: 'UnitTestJunitHudsonTestType', pattern: "**.xml"]]])
-	githubNotify context: 'helloworld', description: 'build finished',  status: currentBuild.currentResult , credentialsId: 'github_oauth_alexey',
+	githubNotify context: 'helloworld', description: 'build finished',  status: currentBuild.currentResult , credentialsId: 'github_oauth_alexey'
     }
 }
