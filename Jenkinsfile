@@ -6,6 +6,7 @@ def BUILDER_IMAGE_NAME='registry2.swarm.devfactory.com/ignite/infobright-db-rele
 node ('docker') {
     timestamps {
         checkout scm
+	print scm
         step([$class: 'XUnitBuilder',
               thresholds: [[$class: 'FailedThreshold', failureThreshold: '1']],
               tools: [[$class: 'UnitTestJunitHudsonTestType', pattern: "**.xml"]]])
