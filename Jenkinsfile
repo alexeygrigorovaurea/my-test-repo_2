@@ -11,6 +11,7 @@ node ('docker') {
               thresholds: [[$class: 'FailedThreshold', failureThreshold: '1']],
               tools: [[$class: 'UnitTestJunitHudsonTestType', pattern: "**.xml"]]])
         archiveArtifacts artifacts: '**/.teamcity/'
+	cobertura autoUpdateStability: false, coberturaReportFile: '**/coverage.xml', conditionalCoverageTargets: '70, 0, 0', failUnhealthy: false, failUnstable: false, lineCoverageTargets: '80, 0, 0', maxNumberOfBuilds: 0, methodCoverageTargets: '80, 0, 0', onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: false
 	
     }
 }
