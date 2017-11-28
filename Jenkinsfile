@@ -4,12 +4,13 @@ def BUILDER_IMAGE_NAME='registry2.swarm.devfactory.com/ignite/infobright-db-rele
 
 //not sure if this works in non-declarative pipeline
 node ('docker') {
-    timestamps {
+    timestamps { 
+	stage 'just do'
         checkout scm
-	print scm
         step([$class: 'XUnitBuilder',
               thresholds: [[$class: 'FailedThreshold', failureThreshold: '1']],
               tools: [[$class: 'UnitTestJunitHudsonTestType', pattern: "**.xml"]]])
-	githubNotify context: 'helloworld', description: 'build finished',  status: currentBuild.currentResult , credentialsId: 'github_oauth_alexey'
+        archiveArtifacts artifacts: '**/.teamcity'
+	
     }
 }
